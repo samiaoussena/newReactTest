@@ -1,0 +1,34 @@
+{
+    "source": "src",
+    "destination": "./dist/docs",
+    "plugins": [
+        {
+            "name": "esdoc-standard-plugin",
+            "option": {
+                "brand": {
+                    "title": "Odd Jobs",
+                    "description":
+                        "Odd jobs application to learn RactJs",
+                    "repository": "https://github.com/react-in-action/letters-social",
+                    "site": "https://ifelse.io",
+                    "author": "Samia Oussena"
+                }
+            }
+        },
+        {
+            "name": "esdoc-ecmascript-proposal-plugin",
+            "option": {
+                "classProperties": true,
+                "objectRestSpread": true,
+                "doExpressions": true,
+                "functionBind": true,
+                "functionSent": true,
+                "asyncGenerators": true,
+                "decorators": true,
+                "exportExtensions": true,
+                "dynamicImport": true
+            }
+        },
+        { "name": "esdoc-jsx-plugin" }
+    ]
+}
