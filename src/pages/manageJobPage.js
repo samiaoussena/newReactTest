@@ -6,7 +6,7 @@ import classnames from 'classnames';
 
 import DisplayMap from '../components/map/DisplayMap';
 import LocationTypeAhead from '../components/map/LocationTypeAhead';
-
+import Welcome from '../components/welcome/Welcome';
 import { saveJob } from '../actions/jobs';
 import Ad from '../components/ad/Ad';
 import Job from '../components/job/job';
@@ -38,28 +38,28 @@ export class ManageJobPage extends Component {
     super(props, context);
 
     const jobId = props.params.id; // from the path `/job/:id`
-    
-      let job = {
-        id: '', comments: '', content: '', date: '', image: '', likes: '', url: '',
-        location: {
-          lat: 34.1535641,
-          lng: -118.1428115,
-          name: null
-        },
-        userId: ''
-      };
-    
-      if (jobId && state.jobs.length > 0) {
-        job = getjobById(state.jobs, jobId);
-      }
-    
-      this.state = {
-        job: Object.assign({}, job),
-        errors: {},
-        locationSelected: false,
-        saving: false
-      
-      };
+
+    let job = {
+      id: '', comments: '', content: '', date: '', image: '', likes: '', url: '',
+      location: {
+        lat: 34.1535641,
+        lng: -118.1428115,
+        name: null
+      },
+      userId: ''
+    };
+
+    if (jobId && state.jobs.length > 0) {
+      job = getjobById(state.jobs, jobId);
+    }
+
+    this.state = {
+      job: Object.assign({}, job),
+      errors: {},
+      locationSelected: false,
+      saving: false
+
+    };
     this.updatejobState = this.updatejobState.bind(this);
     this.saveJob = this.saveJob.bind(this);
     this.handleRemoveLocation = this.handleRemoveLocation.bind(this);
@@ -101,7 +101,7 @@ export class ManageJobPage extends Component {
         lat: 34.1535641,
         lng: -118.1428115,
         name: null
-    }
+      }
     }));
   }
   onLocationUpdate(location) {
@@ -128,7 +128,7 @@ export class ManageJobPage extends Component {
     this.setState({ saving: true });
     if (this.state.locationSelected) {
       this.state.job.location = this.state.location;
-  }
+    }
     this.props.actions.saveJob(this.state.job)
       .then(() => this.redirect())
       .catch(error => {
@@ -142,98 +142,127 @@ export class ManageJobPage extends Component {
     toastr.success('job saved');
     this.context.router.push('/');
   }
-/*
-  render() {
-    return (
-      <JobForm
-        onChange={this.updatejobState}
-        onSave={this.saveJob}
-        handleRemoveLocation={this.handleRemoveLocation}
-        onLocationSelect = {this.onLocationSelect}
-        onLocationUpdate = {this.onLocationUpdate}
-        job={this.state.job}
-        errors={this.state.errors}
-        saving={this.state.saving}
-      />
-    );
-  }
-  */
+  /*
+    render() {
+      return (
+        <JobForm
+          onChange={this.updatejobState}
+          onSave={this.saveJob}
+          handleRemoveLocation={this.handleRemoveLocation}
+          onLocationSelect = {this.onLocationSelect}
+          onLocationUpdate = {this.onLocationUpdate}
+          job={this.state.job}
+          errors={this.state.errors}
+          saving={this.state.saving}
+        />
+      );
+    }
+    */
   renderLocationControls() {
     return (
-        <div className="controls">
-            <button onClick={this.handleSubmit}>save this location</button>
-            {this.state.location && this.state.locationSelected ? (
-                <button onClick={this.handleRemoveLocation} className="open location-indicator">
-                    <i className="fa-location-arrow fa" />
-                    <small>{this.state.location.name}</small>
-                </button>
-            ) : (
-                <button onClick={this.handleToggleLocation} className="open">
-                    {this.state.showLocationPicker ? 'Cancel' : 'Add location'}{' '}
-                    <i
-                        className={classnames(`fa`, {
-                            'fa-map-o': !this.state.showLocationPicker,
-                            'fa-times': this.state.showLocationPicker
-                        })}
-                    />
-                </button>
-            )}
-        </div>
+      <div className="controls">
+        <button onClick={this.handleSubmit}>Save This Location</button>
+        {this.state.location && this.state.locationSelected ? (
+          <button onClick={this.handleRemoveLocation} className="open location-indicator">
+            <i className="fa-location-arrow fa" />
+            <small>{this.state.location.name}</small>
+          </button>
+        ) : (
+            <button onClick={this.handleToggleLocation} className="open">
+              {this.state.showLocationPicker ? 'Cancel' : 'Add location'}{' '}
+              <i
+                className={classnames(`fa`, {
+                  'fa-map-o': !this.state.showLocationPicker,
+                  'fa-times': this.state.showLocationPicker
+                })}
+              />
+            </button>
+          )}
+      </div>
     );
-}
-render() {
+  }
+  render() {
     return (
-        <div className="form-group">
-        <form>
-        <input
-          type="submit"
-          disabled={this.state.saving}
-          value={this.state.saving ? 'Saving...' : 'Save'}
-          className="btn btn-primary"
-          onClick={this.saveJob} />
-          <div className="field">
-            <input 
-             type="textarea"
-             name="content"
-             label="Description"
-             value={this.state.job.content}
-             onChange={this.updatejobState}
-             error={this.state.errors.content} 
-             maxLength="280"
-            />
-            </div>
+      <div className="jobForm">
+        <div>
+        <Welcome />
+        </div>
+          <div>
+            <form>
+              <div className="field">
+                <input
+                  type="textarea"
+                  name="content"
+                  label="Description"
+                  value={this.state.job.content}
+                  onChange={this.updatejobState}
+                  error={this.state.errors.content}
+                  maxLength="280"
+                />
+              </div>
+              <div className="field">
+                <input
+                  type="textarea"
+                  name="content2"
+                  label="Description222"
+                  value={this.state.job.content}
+                  onChange={this.updatejobState}
+                  error={this.state.errors.content}
+                  maxLength="280"
+                />
+              </div>
+              <div className="field">
+                <input
+                  type="textarea"
+                  name="content3"
+                  label="Description33"
+                  value={this.state.job.content}
+                  onChange={this.updatejobState}
+                  error={this.state.errors.content}
+                  maxLength="280"
+                />
+              </div>
+              <input
+                type="submit"
+                disabled={this.state.saving}
+                value={this.state.saving ? 'Saving...' : 'Save Job'}
+                className="btn btn-primary"
+                onClick={this.saveJob} />
+
             </form>
             {this.renderLocationControls()}
             <div
-                className="location-picker"
-                style={{ display: this.state.showLocationPicker ? 'block' : 'none' }}
+              className="location-picker"
+              style={{ display: this.state.showLocationPicker ? 'block' : 'none' }}
             >
-                {!this.state.locationSelected && (
-                    <LocationTypeAhead
-                        onLocationSelect={this.onLocationSelect}
-                        onLocationUpdate={this.onLocationUpdate}
-                    />
-                )}
-                <DisplayMap
-                    displayOnly={false}
-                    location={this.state.location}
-                    onLocationSelect={this.onLocationSelect}
-                    onLocationUpdate={this.onLocationUpdate}
+              {!this.state.locationSelected && (
+                <LocationTypeAhead
+                  onLocationSelect={this.onLocationSelect}
+                  onLocationUpdate={this.onLocationUpdate}
                 />
+              )}
+              <DisplayMap
+                displayOnly={false}
+                location={this.state.location}
+                onLocationSelect={this.onLocationSelect}
+                onLocationUpdate={this.onLocationUpdate}
+              />
             </div>
+          </div>
         </div>
-    );
+        
+        );
 }
 }
 
 ManageJobPage.propTypes = {
-  job: PropTypes.object.isRequired,
+          job: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 //Pull in the React Router context so router is available on this.context.router.
 ManageJobPage.contextTypes = {
-  router: PropTypes.object
+          router: PropTypes.object
 };
 
 function getjobById(jobs, id) {
@@ -246,9 +275,9 @@ function mapStateToProps(state, ownProps) {
   const jobId = ownProps.params.id; // from the path `/job/:id`
 
   let job = {
-    id: '', comments: '', content: '', date: '', image: '', likes: '', url: '',
+          id: '', comments: '', content: '', date: '', image: '', likes: '', url: '',
     location: {
-      lat: 34.1535641,
+          lat: 34.1535641,
       lng: -118.1428115,
       name: null
     },
@@ -256,17 +285,17 @@ function mapStateToProps(state, ownProps) {
   };
 
   if (jobId && state.jobs.length > 0) {
-    job = getjobById(state.jobs, jobId);
-  }
+          job = getjobById(state.jobs, jobId);
+        }
 
   return {
-    job: job
+          job: job
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators({ saveJob }, dispatch)
+          actions: bindActionCreators({saveJob}, dispatch)
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ManageJobPage);

@@ -69,13 +69,13 @@ describe('login actions', () => {
         await store.dispatch(login());
         const actions = store.getActions();
         const expectedActions = [
-            { type: 'letters-social/app/loading' },
+            { type: 'oddjob/app/loading' },
             {
-                type: 'letters-social/auth/login/success',
+                type: 'oddjob/auth/login/success',
                 user: { id: 'id', name: 'name', profilePicture: 'pic' },
                 token: 'token'
             },
-            { type: 'letters-social/app/loaded' }
+            { type: 'oddjob/app/loaded' }
         ];
         expect(actions).toEqual(expectedActions);
     });
@@ -103,13 +103,13 @@ describe('login actions', () => {
         await store.dispatch(login());
         const actions = store.getActions();
         const expectedActions = [
-            { type: 'letters-social/app/loading' },
+            { type: 'oddjob/app/loading' },
             {
-                type: 'letters-social/auth/login/success',
+                type: 'oddjob/auth/login/success',
                 user: { id: 'id', name: 'name', profilePicture: 'pic' },
                 token: 'token'
             },
-            { type: 'letters-social/app/loaded' }
+            { type: 'oddjob/app/loaded' }
         ];
         expect(actions).toEqual(expectedActions);
     });

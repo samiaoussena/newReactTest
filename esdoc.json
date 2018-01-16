@@ -8,8 +8,8 @@
                 "brand": {
                     "title": "Odd Jobs",
                     "description":
-                        "Odd jobs application to learn RactJs",
-                    "repository": "https://github.com/react-in-action/letters-social",
+                        "Odd jobs application",
+                    "repository": "https://github.com/samiaoussena/oddjob",
                     "site": "https://ifelse.io",
                     "author": "Samia Oussena"
                 }

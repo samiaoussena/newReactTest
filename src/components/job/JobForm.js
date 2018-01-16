@@ -8,7 +8,7 @@ const JobForm = ({ job, onSave, onChange, handleRemoveLocation, onLocationSelect
 
 
   return (
-    <div className="create-job">
+    <div className="jobForm">
       <form>
         <h1>Manage job</h1>
         <input

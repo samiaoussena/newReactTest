@@ -16,7 +16,7 @@ const ErrorMessage = ({ error }) => {
             <code>{error.stack || error.stacktrace || 'no error stack available'}</code>
             <button className="block">
                 <a
-                    href="https://github.com/react-in-action/letters-social/issues/new"
+                    href="https://github.com/samiaoussena/oddjob/issues/new"
                     target="_blank"
                     rel="noreferrer noopener"
                 >

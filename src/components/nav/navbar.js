@@ -15,22 +15,22 @@ export const Navigation = ({ user, handleLogout }) => (
     <nav className="navbar">
         <Logo logoOnly={false} />
         {user.authenticated ? (
-            <span>
-            <span>
+            <div>
+            <div>
             <IndexLink to="/" activeClassName="active">Home</IndexLink>
              | 
              <Link to="/job" activeClassName="active">Create New Job </Link>
              |
             < Link to="/about" activeClassName="active">About </Link>
-          </span>
-    <span className="user-nav-widget">
+          </div>
+    <div className="user-nav-widget">
         <span>{user.name}</span>
         <img width={40} className="img-circle" src={user.profilePicture} alt={user.name} />
         <span onClick={handleLogout}>
             <i className="fa fa-sign-out" />
         </span>
-    </span>
-    </span>
+    </div>
+    </div>
         ) : (
     <Link to="/login">
         <button type="button">Log in or sign up</button>

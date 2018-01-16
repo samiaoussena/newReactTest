@@ -1,5 +1,5 @@
 {
-    "name": "letters-social",
+    "name": "oddjob",
     "version": "1.0.0",
     "description": "Sample application for React in Action",
     "main": "./src/index.js",
@@ -8,7 +8,7 @@
         "cjs": true
     },
     "now": {
-        "name": "letters-social",
+        "name": "oddjob",
         "alias": "social.react.sh",
         "dotenv": ".env.production"
     },
@@ -31,12 +31,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/react-in-action/letters-social.git"
+        "url": "git+ssh://git@github.com/react-in-action/oddjob.git"
     },
-    "author": "Mark Thomas <mark@ifelse.io>",
+    "author": "Samia Oussena",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/react-in-action/letters-social/issues"
+        "url": "https://github.com/samiaoussena/oddjob/issues"
     },
     "engines": {
         "node": "8.9.3",
@@ -57,7 +57,7 @@
             "MAPBOX_API_TOKEN": "token"
         }
     },
-    "homepage": "https://github.com/react-in-action/letters-social#readme",
+    "homepage": "https://github.com/samiaoussena/oddjob#readme",
     "dependencies": {
         "@std/esm": "^0.18.0",
         "axios": "^0.17.1",

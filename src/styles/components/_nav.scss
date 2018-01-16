@@ -1,10 +1,14 @@
 // Navbar ============================
 .navbar-brand {
     float: none;
-    padding: 5px;
+    padding: 20px;
 }
 
 .navbar {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: [left] 60vw  [right] 20vw;
+    justify-content: center;
     padding: 3px 5% 5px;
     color: $white;
     background-color: $blue;
@@ -12,7 +16,6 @@
     align-items: center;
     border: 1px solid transparent;
     box-sizing: border-box;
-    display: inline-flex;
     left: 0;
     min-height: $navbar-height;
     position: fixed;
